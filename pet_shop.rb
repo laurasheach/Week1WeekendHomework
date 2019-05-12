@@ -24,20 +24,20 @@ def stock_count(no_of_pets)
  return no_of_pets[:pets].length
 end
 
-def pets_by_breed(pets, breed)
+def pets_by_breed(pet, breed)
   found = []
-  for pet in pets[:pets]
-    if pet[:breed] == breed
-      found.push(pet)
+  for animal in pet[:pets]
+    if animal[:breed] == breed
+      found.push(animal)
     end
   end
   return found
 end
 
-def find_pet_by_name(pets, name)
-  for item in pets[:pets]
-    if item[:name] == name
-      return item
+def find_pet_by_name(pet, name)
+  for animal in pet[:pets]
+    if animal[:name] == name
+      return animal
     end
   end
   return
@@ -71,6 +71,18 @@ def add_pet_to_customer(customer, pet)
   customer[:pets].push(pet)
 end
 
-# def customer_can_afford_pet(customer, pet)
-#   if customer[:]
-# end 
+def customer_can_afford_pet(customer, pet)
+  if customer[:cash] <= pet[:price]
+    return false
+  else
+    return true
+  end
+end
+
+def sell_pet_to_customer(shop, pet, customer)
+
+  if (add_pet_to_customer(customer, pet) == 1)
+      increase_pets_sold(shop, amount)
+  end
+
+end
